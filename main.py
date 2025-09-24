@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from pyspark.sql import SparkSession
 
 OUT_FORMAT = "csv"
@@ -116,3 +117,26 @@ save(favorite_genres,          "output/user_favorite_genres")
 save(avg_listen_time_per_song, "output/avg_listen_time_per_song")
 save(genre_loyalty,            "output/genre_loyalty_scores")
 save(night_users,              "output/night_users")
+=======
+# main.py
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import *
+from pyspark.sql.window import Window
+
+spark = SparkSession.builder.appName("MusicAnalysis").getOrCreate()
+
+# Load datasets
+
+
+# Task 1: User Favorite Genres
+
+
+# Task 2: Average Listen Time
+
+
+
+# Task 3: Genre Loyalty Scores
+
+
+# Task 4: Identify users who listen between 12 AM and 5 AM
+>>>>>>> origin/main
