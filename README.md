@@ -21,6 +21,7 @@ Two CSV files power the analysis:
 > Join key: `song_id`
 
 ## Repository Structure
+```
 handson/
 ├── output/
 │ ├── avg_list_time/
@@ -38,7 +39,9 @@ handson/
 ├── README.md
 ├── Requirements
 └── songs_metadata.csv
+```
 ## Output Directory Structure
+```
 ├── output/
 │ ├── avg_list_time/
 │ │ └── result.csv
@@ -48,6 +51,7 @@ handson/
 │ │ └── result.csv
 │ └── user_fav_genre/
 │ └── result.csv
+```
 ## Tasks and Outputs
 1. Find each user’s favourite genre: Identify the most listened-to genre for each user by
 counting how many times they played songs in each genre.
