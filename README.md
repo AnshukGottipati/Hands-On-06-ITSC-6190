@@ -117,3 +117,11 @@ Before starting the assignment, ensure you have the following software installed
    ```
 
 ## Errors and Resolutions
+1. Issues with Apache Spark on Linus may be solved by doing the following
+   - add the Spark version and package location to the bashrc
+   - swap the java and javac version to what is required by apache spark
+   ```
+   sudo update-alternatives --config java    # interactive picker
+   sudo update-alternatives --config javac
+   ```
+   
