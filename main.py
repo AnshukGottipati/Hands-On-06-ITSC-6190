@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from pyspark.sql import SparkSession
 
 OUT_FORMAT = "csv"
@@ -88,16 +87,20 @@ top AS (
   JOIN max_counts m
     ON c.user_id = m.user_id AND c.plays = m.max_plays
 )
-SELECT t.user_id,
-       t.genre AS top_genre,
-       t.plays AS top_genre_plays,
-       tot.total_plays,
-       ROUND(t.plays / tot.total_plays, 3) AS loyalty_score
+SELECT
+  t.user_id,
+  t.genre AS top_genre,
+  t.plays AS top_genre_plays,
+  tot.total_plays,
+  ROUND(t.plays * 1.0 / tot.total_plays, 3) AS loyalty_score
 FROM top t
 JOIN totals tot USING (user_id)
+WHERE t.plays * 1.0 / tot.total_plays >= 0.8
 ORDER BY t.user_id, top_genre
 """)
+
 genre_loyalty.show(truncate=False)
+
 
 
 # Task 4: Identify users who listen between 12 AM and 5 AM
@@ -117,26 +120,3 @@ save(favorite_genres,          "output/user_favorite_genres")
 save(avg_listen_time_per_song, "output/avg_listen_time_per_song")
 save(genre_loyalty,            "output/genre_loyalty_scores")
 save(night_users,              "output/night_users")
-=======
-# main.py
-from pyspark.sql import SparkSession
-from pyspark.sql.functions import *
-from pyspark.sql.window import Window
-
-spark = SparkSession.builder.appName("MusicAnalysis").getOrCreate()
-
-# Load datasets
-
-
-# Task 1: User Favorite Genres
-
-
-# Task 2: Average Listen Time
-
-
-
-# Task 3: Genre Loyalty Scores
-
-
-# Task 4: Identify users who listen between 12 AM and 5 AM
->>>>>>> origin/main
